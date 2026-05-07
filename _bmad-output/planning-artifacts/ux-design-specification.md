@@ -10,8 +10,8 @@ stepsCompleted:
   - 8
 inputDocuments:
   - path: "_bmad-output/planning-artifacts/prd.md"
-    type: "prd"
-    title: "BRD - Tài liệu yêu cầu nghiệp vụ Mua thẻ cào trên viettelmoney.vn"
+    type: "brd"
+    title: "BRD - Tài liệu yêu cầu kinh doanh Mua thẻ cào trên viettelmoney.vn"
   - path: "_bmad-output/planning-artifacts/prd-validation-report.md"
     type: "validation-report"◊
     title: "PRD Validation Report"

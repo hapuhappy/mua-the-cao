@@ -33,12 +33,15 @@ inputDocuments:
     title: "Website Nạp điện thoại/ Mua thẻ [04/2026]"
     fileKey: "MvKWlDKG55tlppKWNTbTwr"
     nodeId: "5318:41390"
+  - path: "/Users/hapuhappy/Downloads/TK-88727888-070526-1342-97.pdf"
+    type: "reference-brd-template"
+    title: "1 - Tài liệu BRD"
 documentCounts:
   productBriefs: 0
   research: 0
   brainstorming: 0
   projectDocs: 0
-  userProvided: 4
+  userProvided: 5
 classification:
   loaiDuAn: "Ứng dụng web giao dịch"
   linhVuc: "Thanh toán số kết hợp thương mại dịch vụ viễn thông trả trước"
@@ -61,48 +64,58 @@ vision:
     - "Nhận mã thẻ/seri ngay trên màn hình thành công, qua SMS và email nếu khách hàng nhập email."
   businessGoal: "Tăng doanh số bán thẻ cào qua kênh website Viettel Money."
 releaseMode: "phased"
-workflowType: "prd"
+workflowType: "brd"
 workflow: "edit"
-lastEdited: "2026-05-06"
+lastEdited: "2026-05-07"
 editHistory:
+  - date: "2026-05-07"
+    changes: "Tái cấu trúc BRD theo mẫu gồm Phân loại, Bảng tổng hợp thay đổi, Mục tiêu, Tiêu chí thành công, Yêu cầu sản phẩm và Event tracking."
+  - date: "2026-05-07"
+    changes: "Cập nhật thuật ngữ tài liệu từ yêu cầu nghiệp vụ sang yêu cầu kinh doanh / Business Requirement Document."
   - date: "2026-05-06"
-    changes: "Cập nhật PRD theo validation report: bổ sung NFR đo được, compliance/risk matrix, out-of-scope MVP, web performance/accessibility target, FR25 và frontmatter."
+    changes: "Cập nhật BRD theo validation report: bổ sung NFR đo được, compliance/risk matrix, out-of-scope MVP, web performance/accessibility target, FR25 và frontmatter."
   - date: "2026-05-06"
     changes: "Điều chỉnh BRD dễ đọc hơn cho stakeholder và bổ sung yêu cầu kế thừa từ input mẫu Data, FTTH và mô tả dịch vụ Mua thẻ cào."
 ---
 
-# BRD - Tài liệu yêu cầu nghiệp vụ Mua thẻ cào trên viettelmoney.vn
+# BRD - Tài liệu yêu cầu kinh doanh Mua thẻ cào trên viettelmoney.vn
+
+**Business Requirement Document**
 
 **Người lập:** hapu
 **Ngày:** 2026-05-05
 
-## Tóm tắt điều hành
+## 1. Phân loại
 
-Dự án triển khai dịch vụ Mua thẻ cào trên website `viettelmoney.vn`, cho phép khách hàng mua một hoặc nhiều mã thẻ cào trong vài bước mà không cần đăng nhập hoặc tải app Viettel Money. Dịch vụ hướng tới kênh mua nhanh trên web, phục vụ khách hàng có nhu cầu mua thẻ tức thời từ trình duyệt, traffic SEO/quảng cáo, webview hoặc các điểm chạm số khác.
+| Phân loại | Nội dung |
+|---|---|
+| Đối tượng tác động | Dịch vụ: Có. Tính năng: Có. Chiến dịch: Có. Công cụ nội bộ: Có, gồm báo cáo/cấu hình/tra cứu vận hành. Nền tảng/hệ thống backend: Có, gồm thanh toán, cấp mã, SMS/email, tracking và đối soát. |
+| Hình thức tác động | Xây mới kênh mua thẻ cào trên website `viettelmoney.vn`; nâng cấp bổ sung chức năng mua thẻ cào từ nền tảng Viettel Money hiện hữu; nâng cấp luồng trải nghiệm lớn từ app/webview sang web guest checkout; nâng cấp hệ thống nền tảng cho cấp mã, trạng thái giao dịch, SMS/email, tracking và CSKH/đối soát. |
 
-Mục tiêu kinh doanh chính là tăng doanh số bán thẻ cào qua kênh website Viettel Money bằng cách giảm rào cản truy cập, tối ưu tỷ lệ hoàn tất giao dịch và mở rộng tệp khách hàng ngoài app. Khách hàng có thể chọn nhà mạng, mệnh giá, số lượng thẻ, xem chiết khấu trực tiếp trước thanh toán và nhận mã thẻ/seri ngay sau khi giao dịch thành công.
+## 2. Bảng tổng hợp thay đổi
 
-Sau thanh toán, hệ thống hiển thị mã thẻ/seri trên màn hình giao dịch thành công, gửi mã qua SMS và gửi thêm qua email nếu khách hàng nhập email. Luồng nghiệp vụ cần đảm bảo xử lý đầy đủ các trạng thái thanh toán, cấp phát mã, gửi thông báo, tra cứu lịch sử, hỗ trợ sau giao dịch, bảo mật mã thẻ và đối soát vận hành.
+Mỗi lần cập nhật, thay đổi đều được tạo thành một dòng trong bảng bên dưới.
 
-### Điểm khác biệt
+| STT | Thời gian | Phiên bản | Nguồn gốc thay đổi | Căn cứ | Nội dung cũ | Nội dung mới |
+|---:|---|---|---|---|---|---|
+| 1 | 05/05/2026 | 1.0 | Khởi tạo | Mô tả dịch vụ Mua thẻ cào, BRD tham chiếu Data, luồng FTTH/Internet truyền hình và Figma Website Nạp điện thoại/Mua thẻ | N/a | Khởi tạo BRD cho dịch vụ Mua thẻ cào trên `viettelmoney.vn`. |
+| 2 | 06/05/2026 | 1.1 | Cập nhật theo validation report | `_bmad-output/planning-artifacts/prd-validation-report.md` | BRD thiếu một số chỉ số NFR, compliance/risk matrix, out-of-scope MVP và tracking chi tiết | Bổ sung NFR đo được, compliance/risk matrix, out-of-scope MVP, web performance/accessibility target, FR25 và frontmatter. |
+| 3 | 06/05/2026 | 1.2 | Bổ sung thông tin | Tài liệu mẫu Data, FTTH và mô tả dịch vụ Mua thẻ cào | Nội dung BRD còn thiên về PRD/BMAD, chưa dễ đối chiếu với stakeholder nghiệp vụ | Điều chỉnh BRD dễ đọc hơn cho stakeholder và bổ sung yêu cầu kế thừa từ input mẫu. |
+| 4 | 07/05/2026 | 1.3 | Cập nhật theo mẫu BRD | `/Users/hapuhappy/Downloads/TK-88727888-070526-1342-97.pdf` | Tiêu đề và cấu trúc chưa bám form BRD chuẩn | Cập nhật thuật ngữ sang Tài liệu yêu cầu kinh doanh / Business Requirement Document và tái cấu trúc theo mẫu BRD. |
 
-Điểm khác biệt của dịch vụ là mô hình mua thẻ cào nhanh trên web, không yêu cầu đăng nhập hoặc cài app nhưng vẫn giữ được các lợi thế của hệ sinh thái Viettel Money: thanh toán số, chiết khấu rõ ràng, giao mã tức thời và hỗ trợ tra cứu sau giao dịch.
+## 3. Mục tiêu (Objective)
 
-Dịch vụ không chỉ là một trang giới thiệu hoặc form mua hàng đơn giản. Đây là luồng giao dịch có hàng hóa số nhạy cảm, trong đó mã thẻ/seri cần được cấp phát chính xác, hiển thị an toàn và gửi đến đúng kênh nhận sau thanh toán. Khả năng mua nhiều thẻ, nhiều mệnh giá trong một giao dịch giúp tăng giá trị đơn hàng và phục vụ tốt hơn các nhu cầu mua hộ, mua nhiều hoặc mua theo ngân sách cụ thể.
+| STT | Hạng mục | Nội dung |
+|---:|---|---|
+| 1 | Thực trạng Viettel Money | Viettel Money đã có hệ sinh thái thanh toán số và các dịch vụ viễn thông trên app/web, nhưng khách hàng web vẫn cần một luồng mua thẻ cào nhanh, rõ giá, không bắt buộc đăng nhập hoặc tải app. Khách hàng mua thẻ cào thường cần nhận mã ngay, nhưng có rủi ro về niềm tin, timeout, thanh toán thành công nhưng chưa nhận mã, và thiếu kênh tra cứu/hỗ trợ nếu luồng web không xử lý trạng thái rõ ràng. |
+| 2 | Nghiên cứu thị trường, đối thủ | Thị trường mua thẻ cào trực tuyến thường cạnh tranh bằng tốc độ mua, chiết khấu, đa dạng nhà mạng/mệnh giá, nhiều kênh thanh toán và khả năng nhận mã tức thời. Nguồn tham chiếu: ZaloPay mua mã thẻ điện thoại `https://zalopay.vn/dich-vu/mua-the-dien-thoai`; ZaloPay mua thẻ Viettel `https://zalopay.vn/mua-the-dien-thoai-viettel-online-111`; MoMo FAQ chiết khấu `https://www.momo.vn/hoi-dap/thanh-toan-bang-momo-co-duoc-chiet-khau-khong`; MoMo campaign nạp/mua mã thẻ `https://www.momo.vn/tin-tuc/khuyen-mai/uu-dai-den-30-khi-nap-dien-thoai-vinaphone-qua-momo-vao-ngay-25-06-2021-1851`; VNPAY nạp điện thoại `https://vnpay.vn/Huong-dan-nap-tien-dien-thoai-sieu-toc-tren-vi-VNPAY-0f0nm33vo1b`; VNPAY VnTopup `https://vnpay.vn/vntopup-06ylq2lbedbs`; Thế Giới Di Động mua thẻ điện thoại `https://www.thegioididong.com/tien-ich/the-cao-dien-thoai`; Thế Giới Di Động hướng dẫn mua thẻ Viettel `https://www.thegioididong.com/game-app/cach-mua-the-cao-viettel-online-tai-tgdd-chiet-khau-5-the-cao-1404410/`. Bài học áp dụng: giảm bước truy cập, hiển thị giá/chiết khấu minh bạch, hỗ trợ mua hộ/mua nhiều thẻ, có bước xác nhận trước thanh toán, giữ trạng thái giao dịch rõ ràng, hỗ trợ copy/nhận mã, và có kênh hỗ trợ sau thanh toán. |
+| 3 | Nội dung triển khai (tổng quan) | Triển khai dịch vụ Mua thẻ cào trên `viettelmoney.vn`, cho phép khách hàng chọn nhà mạng, mệnh giá, số lượng, nhập số điện thoại/email nhận mã, xác nhận đơn, thanh toán qua cổng dùng chung, nhận mã thẻ/seri trên màn hình thành công và qua SMS/email theo cấu hình. Hệ thống cần có tra cứu, trạng thái giao dịch, báo cáo, cấu hình và tracking phục vụ vận hành. |
+| 4 | Mục tiêu | Tăng doanh số bán thẻ cào qua kênh website Viettel Money bằng cách giảm rào cản truy cập, tối ưu tỷ lệ hoàn tất giao dịch, mở rộng tệp khách hàng ngoài app và đảm bảo khách hàng nhận mã thẻ chắc chắn sau thanh toán. |
+| 5 | Lợi ích triển khai | Doanh nghiệp có thêm kênh doanh thu web, đo được funnel, tối ưu chiến dịch và khai thác traffic SEO/quảng cáo/webview. Khách hàng có thể mua thẻ nhanh, thấy rõ chiết khấu/tổng tiền, mua nhiều thẻ trong một giao dịch và nhận mã qua nhiều kênh. CSKH/Vận hành có dữ liệu để tra cứu, xử lý lỗi và đối soát. |
 
-Insight cốt lõi là khách hàng mua thẻ cào thường cần tốc độ, giá rõ ràng, ưu đãi trực tiếp và nhận mã chắc chắn ngay sau thanh toán. Nếu website giảm được bước đăng nhập/tải app, hiển thị chiết khấu minh bạch và xử lý tốt phần cấp phát mã, kênh web có thể chuyển đổi traffic bên ngoài thành doanh số hiệu quả.
+## 4. Tiêu chí thành công (Success Criteria)
 
-### Phân loại dự án
-
-Dự án thuộc nhóm **ứng dụng web giao dịch**, triển khai trong lĩnh vực **thanh toán số kết hợp thương mại dịch vụ viễn thông trả trước**. Đây là dự án **mở rộng kênh web trên nền tảng Viettel Money hiện hữu**, không phải sản phẩm độc lập.
-
-Độ phức tạp được xác định là **cao** do có các yếu tố: giao dịch thanh toán, cấp phát hàng hóa số, bảo mật mã thẻ/seri, mua nhiều thẻ trong một đơn, trạng thái giao dịch bất đồng bộ, gửi SMS/email, lịch sử giao dịch, xử lý lỗi/time-out, chống lạm dụng chiết khấu và đối soát giữa các hệ thống liên quan.
-
-BRD cần bao phủ toàn bộ luồng mua, thanh toán, giao mã thẻ, trạng thái giao dịch, xử lý lỗi, đối soát, hỗ trợ khách hàng, kiểm soát rủi ro và điểm giống/khác so với luồng app Viettel Money hiện hữu.
-
-## Tiêu chí thành công
-
-### Thành công phía khách hàng
+### 4.1. Chỉ số đánh giá hiệu quả (Metrics to measure success)
 
 Khách hàng có thể hoàn tất mua thẻ cào trên `viettelmoney.vn` trong luồng web ngắn, không cần đăng nhập hoặc tải app. Trải nghiệm được coi là thành công khi khách chọn được nhà mạng, mệnh giá, số lượng thẻ, nhìn thấy chiết khấu/tổng tiền trước thanh toán và nhận mã thẻ/seri ngay sau khi thanh toán thành công.
 
@@ -114,7 +127,7 @@ Tiêu chí thành công phía khách hàng:
 - Khách hàng nhìn thấy rõ chiết khấu, tổng tiền thanh toán và thông tin từng thẻ trước khi xác nhận.
 - Khách hàng có thể tra cứu hoặc được hỗ trợ xử lý khi giao dịch lỗi, timeout, đã thanh toán nhưng chưa nhận mã.
 
-### Thành công kinh doanh
+#### Thành công kinh doanh
 
 Mục tiêu kinh doanh chính của MVP là tăng doanh số bán thẻ cào qua kênh website Viettel Money. Thành công được đo bằng doanh số, số lượng giao dịch, tỷ lệ chuyển đổi và khả năng giảm rớt đơn trong luồng mua/thanh toán.
 
@@ -126,7 +139,7 @@ Chỉ tiêu MVP:
 - Checkout completion rate: >= 95%, tính bằng số thanh toán thành công / số giao dịch đã bắt đầu thanh toán.
 - Cart/checkout abandonment rate được theo dõi theo từng bước: chọn thẻ, nhập thông tin nhận mã, xác nhận giao dịch, chọn phương thức thanh toán, thanh toán.
 
-### Thành công vận hành
+### 4.2. Chỉ số vận hành (Metrics to monitor)
 
 Dịch vụ cần đảm bảo luồng thanh toán và cấp phát mã thẻ hoạt động ổn định, có trạng thái rõ ràng, hỗ trợ vận hành/đối soát và bảo mật dữ liệu mã thẻ.
 
@@ -142,7 +155,19 @@ Tiêu chí vận hành:
 - Mã thẻ/seri được bảo vệ trong hiển thị, lưu trữ, log, analytics và lịch sử giao dịch.
 - Có dữ liệu phục vụ CSKH/đối soát: mã giao dịch, thời gian giao dịch, nhà mạng, mệnh giá, số lượng, trạng thái thanh toán, trạng thái cấp mã, trạng thái gửi SMS/email.
 
-### Chỉ số đo lường
+### 4.3. Chỉ số chất lượng dịch vụ (KPI)
+
+Các chỉ số chất lượng dịch vụ cần đáp ứng Bộ tiêu chuẩn chất lượng dịch vụ của Viettel Money/VDS nếu đã ban hành. Trường hợp chưa có chuẩn nội bộ cụ thể tại thời điểm lập BRD, MVP dùng các KPI tối thiểu dưới đây làm baseline nghiệm thu:
+
+- LCP <= 2,5 giây ở P75 trên mobile web và webview phổ biến.
+- Tương tác chọn nhà mạng/mệnh giá/số lượng phản hồi dưới 300ms ở P95.
+- Thời gian cấp và hiển thị mã thẻ sau thanh toán thành công dưới 2 giây ở P95.
+- Fulfillment success rate >= 99%.
+- Tỷ lệ gửi SMS thành công >= 98%.
+- Tỷ lệ gửi email thành công >= 95% với giao dịch có email hợp lệ.
+- 100% giao dịch có mã giao dịch và trạng thái thanh toán/cấp mã/SMS/email phục vụ CSKH/đối soát.
+
+#### Chỉ số đo lường tổng hợp
 
 Các chỉ số cần đo sau khi triển khai MVP:
 
@@ -161,9 +186,22 @@ Các chỉ số cần đo sau khi triển khai MVP:
 - Tỷ lệ lỗi “đã thanh toán nhưng chưa nhận mã”.
 - Tỷ lệ rớt đơn theo từng bước trong funnel.
 
-## Phạm vi sản phẩm
+## 5. Yêu cầu sản phẩm (Product Specification)
 
-### MVP
+### 5.1. Khách hàng Viettel Money (end-users)
+
+### 5.1.1. Tổng quan
+
+| Hạng mục | Nội dung | Note |
+|---|---|---|
+| Đối tượng sử dụng | Khách hàng truy cập `viettelmoney.vn` có nhu cầu mua một hoặc nhiều thẻ cào nhanh, không bắt buộc đăng nhập hoặc tải app. Bao gồm khách mua lẻ, khách mua nhiều thẻ, khách đến từ SEO/quảng cáo/webview/chat/link chia sẻ/email/campaign và khách cần hỗ trợ sau giao dịch. | Khách không đăng nhập vẫn cần giới hạn giao dịch theo chính sách Risk/Fraud. |
+| Kênh sử dụng | Website `viettelmoney.vn`, mobile web, desktop web, tablet, webview và các điểm chạm dẫn traffic về trang dịch vụ. | Cần kế thừa design system và pattern thanh toán dùng chung của Viettel Money Web. |
+| Điều kiện | Thiết bị có trình duyệt web và kết nối internet; khách hàng nhập số điện thoại hợp lệ để nhận SMS; email là tùy chọn. | Phương thức thanh toán phụ thuộc cổng/thành phần thanh toán dùng chung. |
+| Chính sách | Khách hàng được chọn nhà mạng, mệnh giá, số lượng thẻ theo cấu hình kinh doanh; được xem chiết khấu/tổng tiền trước thanh toán; nhận mã thẻ/seri sau thanh toán thành công qua màn hình, SMS và email nếu nhập email. Chính sách giới hạn số lượng, giá trị đơn, tần suất mua, hoàn/hủy và xử lý lỗi cần tuân thủ quy định nội bộ. | Các ngưỡng Risk/Fraud cụ thể cần chốt trước go-live hoặc cấu hình mặc định được phê duyệt. |
+
+#### Phạm vi sản phẩm
+
+##### MVP
 
 MVP cần chứng minh được luồng mua thẻ cào nhanh trên web, không đăng nhập, có chiết khấu và nhận mã tức thời sau thanh toán.
 
@@ -187,7 +225,7 @@ Phạm vi MVP:
 
 Các giới hạn cho khách không đăng nhập như số lượng thẻ/lần, giá trị đơn tối đa, tần suất mua/ngày cần được chốt trong giai đoạn thiết kế chi tiết hoặc theo chính sách Risk/Fraud.
 
-### Ngoài phạm vi MVP
+##### Ngoài phạm vi MVP
 
 Các hạng mục sau không thuộc phạm vi MVP, trừ khi được phê duyệt bổ sung trong kế hoạch delivery:
 
@@ -199,7 +237,7 @@ Các hạng mục sau không thuộc phạm vi MVP, trừ khi được phê duy�
 - Remarketing hoặc sử dụng số điện thoại/email cho mục đích ngoài giao dịch nếu chưa được chính sách nội bộ phê duyệt.
 - Tối ưu SEO nội dung dài hạn như cụm landing page, blog hoặc hệ thống nội dung mở rộng.
 
-### Tính năng tăng trưởng sau MVP
+##### Tính năng tăng trưởng sau MVP
 
 Các tính năng tăng trưởng sau MVP:
 
@@ -211,13 +249,44 @@ Các tính năng tăng trưởng sau MVP:
 - Tối ưu SEO/landing content theo chiến dịch Kinh doanh/PO.
 - Cơ chế remarketing với nhóm khách nhập email/số điện thoại, nếu được pháp chế/risk phê duyệt.
 
-### Tầm nhìn tương lai
+##### Tầm nhìn tương lai
 
 Phiên bản tương lai có thể phát triển thành kênh web bán dịch vụ viễn thông trả trước đầy đủ trên Viettel Money, bao gồm thẻ cào, nạp điện thoại, data, gói dịch vụ viễn thông và các sản phẩm số liên quan. Kênh web cần duy trì ưu thế mua nhanh, không rào cản, có ưu đãi rõ ràng, nhận hàng số tức thời và có năng lực vận hành/đối soát đủ tin cậy để mở rộng quy mô doanh số.
 
-## Hành trình người dùng
+### 5.1.2. Yêu cầu chức năng
 
-### Hành trình 1: Khách hàng mua 1 thẻ thành công
+#### Biểu đồ mô tả chức năng
+
+Luồng mua thẻ cào bắt đầu khi khách hàng truy cập trang dịch vụ, chọn nhà mạng, mệnh giá, số lượng thẻ, nhập số điện thoại nhận SMS và email nếu có. Hệ thống hiển thị thông tin xác nhận gồm nhà mạng, mệnh giá, số lượng, chiết khấu, tổng tiền, số điện thoại và email trước khi khách hàng chuyển sang thanh toán.
+
+Sau khi khách hàng thanh toán, hệ thống nhận trạng thái trả về từ cổng thanh toán và xử lý theo các nhánh sau:
+
+- **Thanh toán thành công:** hệ thống cấp mã thẻ/seri tương ứng với đơn hàng đã thanh toán và điều hướng khách hàng về màn hình kết quả. Nếu cấp mã thành công toàn bộ, màn hình kết quả hiển thị đầy đủ mã thẻ/seri, mã giao dịch và trạng thái thành công; hệ thống gửi mã qua SMS và email nếu khách hàng có nhập email.
+- **Thanh toán thất bại:** hệ thống hiển thị trạng thái thất bại theo thông báo chuẩn của luồng thanh toán, không cấp mã thẻ và điều hướng khách hàng về bước thanh toán lại một cách dễ dàng nhất.
+- **Thanh toán timeout:** hệ thống hiển thị mã lỗi hoặc trạng thái timeout theo phản hồi nhận được, không cấp mã thẻ khi chưa có xác nhận thanh toán thành công và cung cấp hành động để khách hàng thanh toán lại hoặc kiểm tra lại trạng thái giao dịch.
+- **Thanh toán thành công nhưng cấp mã thất bại toàn bộ:** hệ thống điều hướng khách hàng về màn hình kết quả, hiển thị mã giao dịch, trạng thái cấp mã thất bại và hướng dẫn xử lý tiếp theo; khách hàng cần có hành động quay lại thanh toán/mua lại hoặc liên hệ CSKH theo quy trình vận hành.
+- **Thanh toán thành công nhưng cấp mã thành công một phần:** hệ thống điều hướng khách hàng về màn hình kết quả, hiển thị rõ danh sách mã thẻ/seri đã cấp thành công, các mã/thẻ chưa cấp được, trạng thái từng phần và mã giao dịch để CSKH/Vận hành tra cứu. Trạng thái thành công/thất bại một phần được thông báo ngay tại màn hình trả về mã seri.
+- **Cấp mã thành công nhưng gửi SMS/email thất bại:** màn hình kết quả vẫn hiển thị mã thẻ/seri cho khách hàng; hệ thống ghi nhận trạng thái gửi SMS/email thất bại để CSKH/Vận hành tra cứu và hỗ trợ gửi lại hoặc xử lý theo chính sách.
+
+Nguyên tắc chung là mọi trường hợp thất bại hoặc timeout đều phải có thông báo rõ ràng, mã giao dịch/mã lỗi nếu có, và đường dẫn/hành động giúp khách hàng quay lại thanh toán lại hoặc thực hiện lại giao dịch với ít thao tác nhất. Hệ thống không được cấp mã thẻ khi giao dịch chưa được xác nhận thanh toán thành công.
+
+#### Bảng mô tả hành trình khách hàng (User story Map)
+
+| Chặng | User Story | Note |
+|---|---|---|
+| Chặng 1: Nhận thức về thương hiệu | Khách hàng nhìn thấy dịch vụ Mua thẻ cào từ SEO, quảng cáo, webview, chat/link chia sẻ, email/campaign hoặc menu dịch vụ trên website. | Cần hiển thị rõ Viettel Money, nhà mạng, chiết khấu và cam kết nhận mã sau thanh toán. |
+| Chặng 2: Tìm hiểu thông tin | Khách hàng xem nhà mạng, mệnh giá, chiết khấu, cách nhận mã và thông tin hỗ trợ. | Cần giảm nghi ngại của khách khi mua web không đăng nhập. |
+| Chặng 3: Onboard/Đăng ký dịch vụ | Không yêu cầu đăng ký dịch vụ hoặc đăng nhập. Khách chỉ cần nhập số điện thoại nhận SMS và email tùy chọn. | Cần validate số điện thoại/email trước thanh toán. |
+| Chặng 4: Sử dụng | Khách chọn nhà mạng, mệnh giá, số lượng, xác nhận đơn, thanh toán và nhận mã thẻ/seri. | Bao gồm mua 1 thẻ và mua nhiều thẻ. |
+| Chặng 5: Liên hệ xử lý lỗi, khiếu nại | Khách dùng mã giao dịch/số điện thoại/email để yêu cầu CSKH hỗ trợ khi timeout, đã thanh toán nhưng chưa nhận mã hoặc gửi SMS/email lỗi. | CSKH/Vận hành cần tra cứu trạng thái thanh toán, cấp mã, SMS/email. |
+| Chặng 6: Gắn bó/Rời bỏ | Khách quay lại nếu luồng nhanh, chiết khấu rõ, nhận mã chắc chắn; khách rời bỏ nếu không tin tưởng hoặc gặp lỗi không được hỗ trợ. | Tracking funnel và lỗi cần phục vụ tối ưu sau MVP. |
+| Chặng 7: Kết nối, yêu cầu hỗ trợ | Khách hoặc CSKH/Vận hành cần truy vấn lại giao dịch, đối soát và xử lý theo chính sách. | Cần lưu lịch sử trạng thái và kiểm soát dữ liệu mã thẻ. |
+
+#### Bảng mô tả chi tiết sản phẩm theo user story map
+
+##### Hành trình người dùng
+
+###### Hành trình 1: Khách hàng mua 1 thẻ thành công
 
 Anh Minh cần mua nhanh một thẻ cào để nạp cho người thân. Anh không muốn tải app hoặc đăng nhập vì đang dùng trình duyệt trên điện thoại. Anh truy cập trang Mua thẻ cào trên `viettelmoney.vn`, thấy ngay các lựa chọn nhà mạng, mệnh giá, chiết khấu và nút mua.
 
@@ -227,7 +296,7 @@ Anh xác nhận giao dịch, chọn phương thức thanh toán và hoàn tất 
 
 Giá trị sản phẩm xuất hiện ở khoảnh khắc anh nhận mã ngay mà không phải tải app, đăng nhập hoặc chờ xử lý thủ công.
 
-### Hành trình 2: Khách hàng mua nhiều thẻ thành công
+###### Hành trình 2: Khách hàng mua nhiều thẻ thành công
 
 Chị Hương cần mua nhiều thẻ cào để gửi cho nhân viên, đại lý nhỏ hoặc người thân. Nếu mua từng thẻ riêng lẻ, chị phải lặp lại thanh toán nhiều lần và khó kiểm soát tổng tiền. Chị truy cập trang Mua thẻ cào trên `viettelmoney.vn` để mua nhiều thẻ trong một giao dịch.
 
@@ -237,7 +306,7 @@ Chị xác nhận đơn hàng và thanh toán một lần. Sau khi thanh toán t
 
 Điểm thành công của journey này là khách hàng mua được nhiều thẻ trong một lần thanh toán, nhìn rõ tổng tiền/chiết khấu và nhận đủ danh sách mã ngay sau giao dịch.
 
-### Hành trình 3: Khách hàng gặp lỗi sau thanh toán
+###### Hành trình 3: Khách hàng gặp lỗi sau thanh toán
 
 Anh Nam thanh toán mua thẻ cào trên web nhưng sau khi quay lại từ cổng thanh toán, màn hình bị timeout hoặc chưa hiển thị mã. Anh lo rằng tiền đã bị trừ nhưng chưa nhận được thẻ.
 
@@ -247,7 +316,7 @@ Nếu SMS/email chậm, khách vẫn có thể dựa vào màn hình kết quả
 
 Journey này đảm bảo khách không bị bỏ rơi trong các tình huống nhạy cảm như đã thanh toán nhưng chưa nhận mã, timeout, gửi SMS/email lỗi hoặc cần xem lại thông tin giao dịch.
 
-### Hành trình 4: CSKH/Vận hành tra cứu giao dịch
+###### Hành trình 4: CSKH/Vận hành tra cứu giao dịch
 
 Một khách hàng liên hệ CSKH vì đã thanh toán nhưng chưa nhận được mã thẻ qua SMS. Nhân viên CSKH cần nhanh chóng xác định giao dịch có tồn tại không, thanh toán đã thành công chưa, mã thẻ đã được cấp chưa và SMS/email đã gửi thành công hay thất bại.
 
@@ -257,7 +326,7 @@ Nếu thanh toán thành công và mã đã cấp, CSKH hướng dẫn khách ki
 
 Journey này cho thấy hệ thống cần dữ liệu trạng thái đủ chi tiết để giảm thời gian xử lý khiếu nại và tránh trả lời chung chung cho khách.
 
-### Hành trình 5: Kinh doanh/PO theo dõi doanh số và hiệu quả dịch vụ
+###### Hành trình 5: Kinh doanh/PO theo dõi doanh số và hiệu quả dịch vụ
 
 Hằng ngày hoặc theo từng chiến dịch, đội Kinh doanh/PO cần theo dõi hiệu quả dịch vụ Mua thẻ cào trên website Viettel Money. Mục tiêu chính là kiểm tra doanh số, số lượng giao dịch, số lượng thẻ bán ra, mệnh giá bán chạy, nhà mạng bán chạy, tỷ lệ chuyển đổi, tỷ lệ rớt đơn trong funnel và hiệu quả theo từng nguồn traffic/quảng cáo.
 
@@ -267,7 +336,7 @@ Khi phát hiện doanh số thấp, tỷ lệ rớt đơn cao hoặc một nhà 
 
 Journey này tạo yêu cầu về dashboard/báo cáo kinh doanh, tracking funnel, tracking theo nguồn traffic/quảng cáo, phân tích doanh số theo nhà mạng/mệnh giá/chiến dịch và dữ liệu đủ chi tiết để PO ra quyết định tối ưu sản phẩm.
 
-### Hành trình 6: Kinh doanh/PO cấu hình dịch vụ và chiến dịch
+###### Hành trình 6: Kinh doanh/PO cấu hình dịch vụ và chiến dịch
 
 Đội Kinh doanh/PO cần vận hành dịch vụ theo mục tiêu kinh doanh và từng chiến dịch. Họ cần cấu hình nhà mạng được bán, mệnh giá hiển thị, mức chiết khấu, nội dung hiển thị, nguồn traffic/chiến dịch và có thể theo dõi hiệu quả bán hàng.
 
@@ -277,7 +346,7 @@ Nếu có thay đổi chính sách chiết khấu hoặc tạm dừng nhà mạn
 
 Journey này cho thấy dịch vụ cần khả năng cấu hình linh hoạt, theo dõi hiệu quả và kiểm soát thay đổi.
 
-### Tổng hợp yêu cầu từ hành trình
+###### Tổng hợp yêu cầu từ hành trình
 
 Các journey trên cho thấy hệ thống cần các nhóm năng lực chính:
 
@@ -296,9 +365,9 @@ Các journey trên cho thấy hệ thống cần các nhóm năng lực chính:
 - Cấu hình nhà mạng, mệnh giá, chiết khấu, bật/tắt dịch vụ, chiến dịch, nguồn traffic và nội dung hiển thị.
 - Ghi nhận log/trạng thái đủ chi tiết để hỗ trợ khiếu nại, vận hành và kiểm soát nội bộ.
 
-## Yêu cầu nghiệp vụ đặc thù
+##### Yêu cầu nghiệp vụ đặc thù
 
-### Tuân thủ và quy định
+###### Tuân thủ và quy định
 
 Dịch vụ Mua thẻ cào trên `viettelmoney.vn` là luồng giao dịch thanh toán số có phát sinh hàng hóa số là mã thẻ/seri. BRD cần yêu cầu hệ thống tuân thủ các quy định, chính sách nội bộ và quy trình vận hành hiện hành của Viettel Money đối với giao dịch thanh toán, bảo mật dữ liệu khách hàng, bảo vệ dữ liệu mã thẻ và xử lý khiếu nại sau giao dịch.
 
@@ -310,7 +379,7 @@ Các yêu cầu chính:
 - Các thông tin liên hệ khách hàng như số điện thoại và email chỉ được sử dụng cho mục đích gửi mã, hỗ trợ giao dịch và các mục đích khác nếu được chính sách nội bộ cho phép.
 - Quy trình xử lý lỗi, hoàn/hủy hoặc hỗ trợ sau thanh toán cần tuân thủ chính sách vận hành hiện hành của Viettel Money.
 
-### Ma trận tuân thủ, dữ liệu và kiểm soát
+###### Ma trận tuân thủ, dữ liệu và kiểm soát
 
 | Nhóm kiểm soát | Yêu cầu nghiệp vụ | Chủ trì xác nhận | Tiêu chí nghiệm thu MVP |
 |---|---|---|---|
@@ -322,7 +391,7 @@ Các yêu cầu chính:
 | Guest checkout Risk/Fraud | Có khả năng áp dụng giới hạn số lượng thẻ, giá trị đơn, tần suất mua và rule theo nguồn traffic khi chính sách Risk/Fraud được chốt. | Risk/Fraud, PO, Kinh doanh | MVP ghi nhận đủ dữ liệu để bật giới hạn; giới hạn cụ thể được cấu hình/chốt trước go-live. |
 | Khiếu nại và xử lý sau giao dịch | Có dữ liệu phục vụ xử lý trường hợp đã thanh toán nhưng chưa nhận mã, cấp mã một phần, gửi SMS/email lỗi. | CSKH/Vận hành, PO | CSKH tra cứu được giao dịch theo mã giao dịch/số điện thoại/email và thấy trạng thái thanh toán/cấp mã/gửi thông báo. |
 
-### Quy tắc trạng thái và cấp mã
+###### Quy tắc trạng thái và cấp mã
 
 Dịch vụ cần quản lý rõ ba nhóm trạng thái: thanh toán, cấp mã thẻ và gửi SMS/email. Việc tách trạng thái giúp CSKH, Vận hành và PO biết chính xác giao dịch đang vướng ở bước nào, thay vì chỉ nhìn thấy một trạng thái lỗi chung.
 
@@ -350,7 +419,7 @@ Quy tắc nghiệp vụ cần đảm bảo:
 - Vì khách hàng không đăng nhập, hệ thống cần lưu đủ thông tin giao dịch để hỗ trợ tra cứu sau giao dịch: mã giao dịch, số điện thoại nhận SMS, email nếu có, thời gian, nhà mạng, mệnh giá, số lượng, trạng thái thanh toán, trạng thái cấp mã và trạng thái gửi SMS/email.
 - Các giới hạn giao dịch cho khách không đăng nhập như số lượng thẻ/lần, giá trị đơn tối đa, tần suất mua/ngày chưa được chốt và cần được xác định trong thiết kế chi tiết theo chính sách Risk/Fraud.
 
-### Yêu cầu kế thừa từ input mẫu
+###### Yêu cầu kế thừa từ input mẫu
 
 BRD cần kế thừa các điểm đã có trong mô tả dịch vụ Mua thẻ cào hiện hữu và tài liệu mẫu Data/FTTH để đội sản phẩm, UX và phát triển dễ đối chiếu:
 
@@ -365,7 +434,7 @@ BRD cần kế thừa các điểm đã có trong mô tả dịch vụ Mua thẻ
 - Các form nhập liệu cần có hint text, kiểm tra định dạng và lỗi inline tương tự các màn hình mẫu FTTH; lỗi cần nói rõ khách phải sửa gì.
 - Các thành phần điều hướng như menu dịch vụ, tab dịch vụ, dropdown nhà mạng hoặc khu vực hướng dẫn cần kế thừa pattern hiện hữu của Viettel Money Web nếu phù hợp.
 
-### Yêu cầu phối hợp hệ thống
+###### Yêu cầu phối hợp hệ thống
 
 Dịch vụ cần tích hợp với các hệ thống/thành phần hiện hữu của Viettel Money Web và các hệ thống liên quan đến thanh toán, cấp phát mã, gửi thông báo, CSKH và báo cáo.
 
@@ -379,7 +448,7 @@ Các nhóm tích hợp cần xem xét:
 - Tích hợp dữ liệu tra cứu cho CSKH/Vận hành.
 - Tích hợp báo cáo/dashboard cho Kinh doanh/PO theo dõi doanh số, số giao dịch, số lượng thẻ bán ra, nguồn traffic/quảng cáo, funnel chuyển đổi và lỗi ảnh hưởng doanh thu.
 
-### Kiểm soát rủi ro
+###### Kiểm soát rủi ro
 
 Các rủi ro domain cần được kiểm soát trong thiết kế nghiệp vụ và vận hành:
 
@@ -391,15 +460,15 @@ Các rủi ro domain cần được kiểm soát trong thiết kế nghiệp v�
 - **Khách nhập sai số điện thoại/email:** cần hiển thị xác nhận thông tin trước thanh toán và có quy trình hỗ trợ phù hợp sau giao dịch.
 - **Lộ mã thẻ/seri:** cần kiểm soát hiển thị, lưu trữ, log, analytics và quyền truy cập khi tra cứu lại.
 
-## Yêu cầu đặc thù cho ứng dụng web
+##### Yêu cầu đặc thù cho ứng dụng web
 
-### Tổng quan loại dự án
+###### Tổng quan loại dự án
 
 Dịch vụ Mua thẻ cào trên `viettelmoney.vn` là ứng dụng web giao dịch nằm trong hệ sinh thái Viettel Money Web. Dịch vụ cần ưu tiên trải nghiệm mobile web và webview vì khách hàng có thể đến từ quảng cáo, tìm kiếm, mạng xã hội, tin nhắn hoặc các điểm chạm số khác. Desktop và tablet vẫn cần được hỗ trợ để đảm bảo trải nghiệm đầy đủ trên các thiết bị phổ biến.
 
 Dịch vụ không được thiết kế như một website độc lập. Các màn hình, luồng thanh toán và thành phần giao diện cần kế thừa nền tảng, design system và cổng thanh toán dùng chung của Viettel Money.
 
-### Nguyên tắc kế thừa nền tảng
+###### Nguyên tắc kế thừa nền tảng
 
 Dịch vụ cần bám nền tảng Viettel Money Web hiện hữu. BRD không quyết định cách xây dựng chi tiết, nhưng sản phẩm cuối cần đáp ứng các nguyên tắc sau:
 
@@ -410,7 +479,7 @@ Dịch vụ cần bám nền tảng Viettel Money Web hiện hữu. BRD không q
 - Khi thanh toán hoặc cấp mã chậm, khách cần thấy trạng thái đang xử lý và có cách kiểm tra lại giao dịch.
 - Refresh, back, retry hoặc timeout trong quá trình thanh toán/cấp mã không được làm khách mất thông tin đơn hàng đã tạo.
 
-### Hỗ trợ trình duyệt và thiết bị
+###### Hỗ trợ trình duyệt và thiết bị
 
 Dịch vụ cần hỗ trợ các môi trường truy cập chính:
 
@@ -427,7 +496,7 @@ Yêu cầu trải nghiệm trên webview:
 - Trạng thái thanh toán cần rõ ràng khi người dùng quay lại từ cổng thanh toán.
 - Luồng mua không được mất dữ liệu đơn hàng khi chuyển sang bước thanh toán hoặc quay lại từ thanh toán.
 
-### Kênh truy cập và hành trình từ input mẫu
+###### Kênh truy cập và hành trình từ input mẫu
 
 Dịch vụ cần sẵn sàng cho các nguồn truy cập đã được nêu trong tài liệu mẫu website bán hàng:
 
@@ -439,7 +508,7 @@ Dịch vụ cần sẵn sàng cho các nguồn truy cập đã được nêu tro
 
 Yêu cầu chung cho các kênh này là link phải dẫn khách vào đúng trang dịch vụ, bảo toàn thông tin campaign cần thiết cho đo lường và không làm khách phải tải app/đăng nhập trước khi mua.
 
-### Sẵn sàng cho SEO và traffic
+###### Sẵn sàng cho SEO và traffic
 
 Trang dịch vụ cần phục vụ được traffic từ tìm kiếm và quảng cáo. SEO là yêu cầu hỗ trợ chuyển đổi, không phải mục tiêu tách biệt khỏi nghiệp vụ bán hàng.
 
@@ -451,7 +520,7 @@ Yêu cầu:
 - Tracking cần ghi nhận nguồn traffic/chiến dịch qua GA và Adjust để Kinh doanh/PO theo dõi hiệu quả.
 - Các tham số campaign/source/medium cần được bảo toàn trong luồng mua và thanh toán ở mức phù hợp để phục vụ đo lường chuyển đổi.
 
-### Responsive design và chuẩn UI/UX
+###### Responsive design và chuẩn UI/UX
 
 Dịch vụ cần sử dụng design system Viettel Money và tái sử dụng các component/pattern hiện hữu cho nhóm dịch vụ viễn thông, xác nhận giao dịch, cổng thanh toán và kết quả giao dịch.
 
@@ -466,7 +535,7 @@ Yêu cầu UI/UX:
 - Cần hỗ trợ thao tác sao chép mã thẻ/seri, đặc biệt với giao dịch mua nhiều thẻ.
 - Trạng thái lỗi, timeout hoặc đang xử lý phải có thông điệp rõ ràng và hướng dẫn hành động tiếp theo.
 
-### Yêu cầu tốc độ và ổn định trải nghiệm
+###### Yêu cầu tốc độ và ổn định trải nghiệm
 
 Dịch vụ cần tuân thủ chuẩn performance của Viettel Money Web cho web bán hàng, ưu tiên mobile web và webview. Mục tiêu performance là giảm rớt đơn, đảm bảo luồng thanh toán ổn định và hiển thị mã nhanh sau khi thanh toán thành công.
 
@@ -479,7 +548,7 @@ Yêu cầu performance:
 - Khi phản hồi thanh toán hoặc cấp mã chậm, hệ thống cần có cơ chế kiểm tra lại trạng thái và hiển thị trạng thái đang xử lý phù hợp.
 - Không để lỗi tải trang, timeout hoặc refresh làm mất trạng thái đơn hàng trong quá trình thanh toán.
 
-### Accessibility và khả dụng form
+###### Accessibility và khả dụng form
 
 Dịch vụ cần đáp ứng chuẩn UI/UX và accessibility của Viettel Money Web; nếu chưa có chuẩn nội bộ cụ thể, dùng WCAG 2.1 AA làm baseline cho các màn giao dịch chính.
 
@@ -490,7 +559,7 @@ Dịch vụ cần đáp ứng chuẩn UI/UX và accessibility của Viettel Mone
 - Người dùng có thể kiểm tra lại thông tin trước khi thanh toán.
 - Nội dung quan trọng như tổng tiền, chiết khấu và mã thẻ không bị che khuất trên các kích thước màn hình phổ biến.
 
-### Lưu ý phối hợp triển khai
+###### Lưu ý phối hợp triển khai
 
 Các điểm cần lưu ý khi triển khai:
 
@@ -503,9 +572,9 @@ Các điểm cần lưu ý khi triển khai:
 - Cần phân biệt rõ lỗi giao diện, lỗi thanh toán, lỗi cấp mã và lỗi gửi SMS/email.
 - Cần thống nhất với đội vận hành/CSKH về dữ liệu hiển thị khi tra cứu giao dịch.
 
-## Phạm vi dự án và phát triển theo giai đoạn
+##### Phạm vi dự án và phát triển theo giai đoạn
 
-### Chiến lược MVP
+###### Chiến lược MVP
 
 **Cách tiếp cận MVP:** Revenue MVP
 
@@ -517,7 +586,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 
 **Nguồn lực cần phối hợp:** PO/Kinh doanh, UX/UI, đội phát triển web, đội tích hợp/thanh toán CTT, hệ thống cấp mã thẻ, SMS/Email, QA, CSKH/Vận hành và báo cáo/tracking GA/Adjust.
 
-### Phạm vi MVP (Giai đoạn 1)
+###### Phạm vi MVP (Giai đoạn 1)
 
 **Hành trình người dùng được hỗ trợ:**
 
@@ -556,7 +625,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - Kiểm thử trên mobile web, desktop/tablet và webview phổ biến.
 - Sử dụng design system Viettel Money và CTT/cổng thanh toán dùng chung.
 
-### Tính năng sau MVP
+###### Tính năng sau MVP
 
 **Giai đoạn 2 (Growth):**
 
@@ -575,7 +644,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - Remarketing với nhóm khách nhập email/số điện thoại, nếu được pháp chế/risk phê duyệt.
 - Tự động hóa cảnh báo vận hành khi có bất thường về thanh toán, cấp mã, gửi SMS/email hoặc tỷ lệ lỗi theo nhà mạng/mệnh giá.
 
-### Chiến lược kiểm soát rủi ro
+###### Chiến lược kiểm soát rủi ro
 
 **Rủi ro vận hành hệ thống:**
 
@@ -596,9 +665,9 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - Có thể giảm độ phức tạp của dashboard/cấu hình trong MVP nếu vẫn đảm bảo Kinh doanh/PO có dữ liệu tối thiểu để theo dõi doanh số và lỗi.
 - Các tính năng gợi ý combo, remarketing, cá nhân hóa và tối ưu nâng cao có thể để sau MVP.
 
-## Yêu cầu chức năng
+##### Yêu cầu chức năng
 
-### Truy cập dịch vụ và chọn sản phẩm
+###### Truy cập dịch vụ và chọn sản phẩm
 
 - FR1: Khách hàng có thể truy cập trang dịch vụ Mua thẻ cào trên `viettelmoney.vn` bằng trình duyệt web mà không cần đăng nhập.
 - FR2: Khách hàng có thể xem danh sách nhà mạng được hỗ trợ theo cấu hình kinh doanh.
@@ -608,7 +677,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR6: Khách hàng có thể xem thông tin chiết khấu áp dụng cho nhà mạng, mệnh giá hoặc chiến dịch nếu có.
 - FR7: Hệ thống có thể hiển thị trạng thái khả dụng của nhà mạng, mệnh giá hoặc dịch vụ khi bị tạm dừng/bảo trì.
 
-### Tạo đơn mua thẻ
+###### Tạo đơn mua thẻ
 
 - FR8: Khách hàng có thể chọn số lượng thẻ cần mua cho từng mệnh giá.
 - FR9: Khách hàng có thể mua một thẻ trong một giao dịch.
@@ -620,7 +689,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR15: Hệ thống có thể kiểm tra định dạng số điện thoại và email trước khi khách hàng xác nhận giao dịch.
 - FR16: Khách hàng có thể xem lại thông tin đơn hàng, số điện thoại, email nếu có, chiết khấu và tổng tiền trước khi thanh toán.
 
-### Xác nhận và thanh toán
+###### Xác nhận và thanh toán
 
 - FR17: Khách hàng có thể xác nhận giao dịch mua thẻ cào trước khi chuyển sang thanh toán.
 - FR18: Hệ thống có thể tạo mã giao dịch duy nhất cho mỗi đơn mua thẻ.
@@ -629,7 +698,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR21: Hệ thống có thể phân biệt các trạng thái thanh toán: chờ thanh toán, thanh toán thành công, thanh toán thất bại và thanh toán timeout.
 - FR22: Hệ thống không cấp mã thẻ khi giao dịch chưa được xác nhận thanh toán thành công.
 
-### Cấp phát và hiển thị mã thẻ
+###### Cấp phát và hiển thị mã thẻ
 
 - FR23: Hệ thống có thể cấp phát mã thẻ/seri sau khi giao dịch được xác nhận thanh toán thành công.
 - FR24: Hệ thống có thể cấp phát đủ số lượng mã thẻ/seri tương ứng với đơn hàng đã thanh toán.
@@ -640,7 +709,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR29: Khách hàng có thể sao chép mã thẻ/seri từ màn hình giao dịch thành công.
 - FR30: Hệ thống có thể hiển thị thông tin giao dịch thành công gồm nhà mạng, mệnh giá, số lượng, tổng tiền, chiết khấu và mã giao dịch.
 
-### Gửi thông báo SMS/email
+###### Gửi thông báo SMS/email
 
 - FR31: Hệ thống có thể gửi mã thẻ/seri qua SMS đến số điện thoại khách hàng đã nhập.
 - FR32: Hệ thống có thể gửi mã thẻ/seri qua email nếu khách hàng đã nhập email.
@@ -648,7 +717,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR34: Hệ thống có thể ghi nhận trạng thái gửi email cho từng giao dịch có email.
 - FR35: Hệ thống có thể xử lý trường hợp cấp mã thành công nhưng gửi SMS hoặc email thất bại.
 
-### Xử lý trạng thái và lỗi giao dịch
+###### Xử lý trạng thái và lỗi giao dịch
 
 - FR36: Hệ thống có thể hiển thị kết quả giao dịch thành công, thất bại, timeout hoặc đang xử lý.
 - FR37: Hệ thống có thể truy vấn lại trạng thái giao dịch khi phản hồi thanh toán hoặc cấp mã chậm.
@@ -658,7 +727,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR41: Hệ thống có thể cung cấp mã giao dịch và hướng dẫn tiếp theo cho khách hàng khi giao dịch lỗi, timeout hoặc đang xử lý.
 - FR42: Hệ thống có thể bảo vệ mã thẻ/seri khỏi việc hiển thị trong log, analytics hoặc tracking.
 
-### Tra cứu, CSKH và vận hành
+###### Tra cứu, CSKH và vận hành
 
 - FR43: CSKH/Vận hành có thể tra cứu giao dịch theo mã giao dịch.
 - FR44: CSKH/Vận hành có thể tra cứu giao dịch theo số điện thoại nhận SMS.
@@ -669,7 +738,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR49: CSKH/Vận hành có thể xem mã lỗi hoặc lý do thất bại nếu giao dịch thanh toán, cấp mã hoặc gửi thông báo lỗi.
 - FR50: Hệ thống có thể lưu lịch sử xử lý/trạng thái phục vụ tra cứu, khiếu nại và kiểm soát nội bộ.
 
-### Báo cáo, cấu hình và tracking
+###### Báo cáo, cấu hình và tracking
 
 - FR51: Kinh doanh/PO có thể xem báo cáo doanh số theo ngày, tháng hoặc chiến dịch.
 - FR52: Kinh doanh/PO có thể xem số giao dịch thành công và số lượng thẻ bán ra.
@@ -684,7 +753,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR61: Hệ thống có thể gửi sự kiện tracking funnel qua GA và Adjust.
 - FR62: Hệ thống có thể ghi nhận các bước funnel chính: vào trang, chọn nhà mạng/mệnh giá, thay đổi số lượng, nhập thông tin nhận mã, xác nhận, bắt đầu thanh toán, thanh toán thành công, cấp mã thành công, giao dịch thất bại/timeout.
 
-### Kế thừa giao diện và kênh vào
+###### Kế thừa giao diện và kênh vào
 
 - FR63: Hệ thống có thể ghi nhận nguồn truy cập/campaign từ SEO, ads, webview, chat/link chia sẻ, email/campaign và điểm chạm nội bộ nếu các kênh này được sử dụng.
 - FR64: Hệ thống có thể hiển thị logo/tên nhà mạng và lựa chọn mặc định theo cấu hình kinh doanh.
@@ -692,9 +761,9 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - FR66: Màn kết quả giao dịch có thể hiển thị block thẻ cào gồm logo/tên nhà mạng, mệnh giá, số seri và mã thẻ.
 - FR67: Với thẻ Viettel, hệ thống có thể hiển thị hành động “Nạp ngay” hoặc hướng dẫn nạp thẻ nếu năng lực này được hỗ trợ trong nền tảng hiện hữu.
 
-## Yêu cầu phi chức năng
+### 5.1.3. Yêu cầu phi chức năng
 
-### Performance
+#### Performance
 
 - NFR1: Trang dịch vụ Mua thẻ cào cần đạt LCP <= 2,5 giây ở P75 trên mobile web và webview phổ biến, đo bằng công cụ performance/RUM của Viettel Money hoặc công cụ tương đương trước go-live.
 - NFR2: Luồng chọn nhà mạng, mệnh giá, số lượng, tính chiết khấu và tổng tiền cần phản hồi dưới 300ms ở P95 trong điều kiện tải MVP, đo bằng instrumentation frontend hoặc kiểm thử hiệu năng.
@@ -703,7 +772,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR5: Refresh, back, retry hoặc timeout không được làm mất trạng thái đơn hàng đã tạo; kiểm thử E2E phải bao phủ các tình huống này trên mobile web, desktop và webview.
 - NFR6: Hình ảnh, banner và tài nguyên tĩnh phải được tối ưu theo chuẩn performance Viettel Money Web; nếu chưa có chuẩn nội bộ, tổng tài nguyên phục vụ first view trên mobile không vượt ngưỡng do đội phát triển xác nhận trước go-live.
 
-### Bảo mật
+#### Bảo mật
 
 - NFR7: Mã thẻ/seri được phân loại là dữ liệu nhạy cảm và phải được bảo vệ trong hiển thị, lưu trữ, gửi SMS/email, tra cứu CSKH và đối soát theo chính sách nội bộ.
 - NFR8: Mã thẻ/seri không được xuất hiện trong URL, log ứng dụng, log web server, GA, Adjust, analytics, tracking event hoặc công cụ ghi nhận hành vi; tiêu chí nghiệm thu là kiểm tra mẫu log/event không phát hiện mã thẻ/seri.
@@ -713,7 +782,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR12: 100% thay đổi cấu hình quan trọng như nhà mạng, mệnh giá, chiết khấu, bật/tắt dịch vụ phải được ghi nhận lịch sử gồm người thay đổi, thời gian, giá trị trước/sau và lý do nếu có.
 - NFR13: Guest checkout phải hỗ trợ áp dụng giới hạn số lượng thẻ, giá trị đơn và tần suất mua theo chính sách Risk/Fraud; giới hạn cụ thể phải được chốt trước go-live hoặc ghi nhận là cấu hình mặc định được phê duyệt.
 
-### Độ tin cậy
+#### Độ tin cậy
 
 - NFR14: Hệ thống phải phân biệt và lưu riêng trạng thái thanh toán, trạng thái cấp mã thẻ và trạng thái gửi SMS/email cho 100% giao dịch.
 - NFR15: Hệ thống phải xử lý được các tình huống thanh toán thất bại, thanh toán timeout, thanh toán thành công nhưng cấp mã lỗi, cấp mã thành công nhưng gửi SMS/email lỗi; mỗi tình huống có trạng thái hiển thị và mã lỗi/diễn giải phục vụ CSKH.
@@ -723,7 +792,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR19: Tỷ lệ gửi SMS thành công mục tiêu là >= 98% với giao dịch đã cấp mã thành công; tỷ lệ gửi email thành công mục tiêu là >= 95% với giao dịch có email hợp lệ.
 - NFR20: CSKH/Vận hành phải tra cứu được giao dịch theo mã giao dịch hoặc số điện thoại nhận SMS trong 100% trường hợp khách liên hệ có thông tin tối thiểu hợp lệ.
 
-### Khả năng mở rộng
+#### Khả năng mở rộng
 
 - NFR21: Hệ thống phải đáp ứng mục tiêu MVP 1.000 giao dịch/ngày và có khả năng xử lý tối thiểu 3 lần mức trung bình ngày MVP trong các ngày chiến dịch, đo bằng kiểm thử tải hoặc số liệu vận hành được đội phát triển phê duyệt.
 - NFR22: Luồng mua, cấp mã, gửi SMS/email và tracking phải duy trì checkout completion rate >= 95% và fulfillment success rate >= 99% trong điều kiện tải MVP.
@@ -731,7 +800,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR24: Hệ thống phải hỗ trợ thêm/bớt nhà mạng, mệnh giá và chiến dịch chiết khấu bằng cấu hình mà không thay đổi luồng mua cốt lõi.
 - NFR25: Các thành phần cấp mã, gửi SMS/email và tracking phải có khả năng mở rộng theo tăng trưởng số lượng giao dịch mà không làm giảm các KPI fulfillment, SMS/email delivery và checkout đã nêu.
 
-### Accessibility và khả dụng
+#### Accessibility và khả dụng
 
 - NFR26: Dịch vụ phải tuân thủ chuẩn UI/UX và accessibility của Viettel Money Web; nếu chưa có chuẩn nội bộ cụ thể, các màn giao dịch chính dùng WCAG 2.1 AA làm baseline kiểm tra.
 - NFR27: Form số điện thoại và email phải có label, hướng dẫn và thông báo lỗi rõ ràng; kiểm thử UX phải xác nhận khách hiểu lỗi nhập liệu và cách sửa.
@@ -741,7 +810,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR31: Khách hàng phải có bước xác nhận lại nhà mạng, mệnh giá, số lượng, chiết khấu, tổng tiền, số điện thoại và email nếu có trước khi thanh toán.
 - NFR32: Email là thông tin tùy chọn; khách hàng bỏ trống email vẫn phải tiếp tục thanh toán được nếu số điện thoại hợp lệ.
 
-### Tích hợp
+#### Tích hợp
 
 - NFR33: CTT/cổng thanh toán dùng chung phải trả về hoặc cho phép truy vấn trạng thái chờ thanh toán, thanh toán thành công, thanh toán thất bại và timeout để hệ thống xử lý đúng trạng thái giao dịch.
 - NFR34: Hệ thống cấp mã thẻ phải hỗ trợ cấp đủ số lượng mã theo đơn hàng, không cấp trùng mã và trả về trạng thái lỗi đủ để vận hành xử lý.
@@ -749,7 +818,7 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR36: Các tích hợp thanh toán, cấp mã, SMS/email phải hỗ trợ cơ chế truy vấn lại trạng thái khi phản hồi chậm hoặc không nhận được phản hồi trong thời gian chờ được đội phát triển xác nhận.
 - NFR37: Dữ liệu giao dịch phải đủ trường để kết nối với báo cáo, CSKH/Vận hành và tracking GA/Adjust, gồm mã giao dịch, thời gian, nhà mạng, mệnh giá, số lượng, chiết khấu, trạng thái thanh toán, trạng thái cấp mã và trạng thái gửi SMS/email.
 
-### Tracking và theo dõi vận hành
+#### Tracking và theo dõi vận hành
 
 - NFR38: Hệ thống phải gửi tracking funnel qua GA và Adjust cho các bước chính: vào trang, chọn nhà mạng/mệnh giá, thay đổi số lượng, nhập thông tin nhận mã, xác nhận, bắt đầu thanh toán, thanh toán thành công, cấp mã thành công, giao dịch thất bại/timeout.
 - NFR39: 100% event tracking không được chứa mã thẻ/seri, số điện thoại/email dạng thô hoặc dữ liệu nhạy cảm chưa được phê duyệt.
@@ -757,3 +826,20 @@ Dự án triển khai theo hướng có MVP trước, sau đó mở rộng các 
 - NFR41: Với traffic từ webview/quảng cáo, quy trình QA phải kiểm tra prefetch, click ảo, mất attribution và bảo toàn campaign/source/medium qua luồng mua-thanh toán.
 - NFR42: Hệ thống phải log đủ mã giao dịch, trạng thái và mã lỗi để phục vụ vận hành; log không được chứa mã thẻ/seri ở dạng lộ.
 - NFR43: Hệ thống cần dashboard hoặc báo cáo vận hành theo dõi tối thiểu các KPI: doanh số, số giao dịch thành công, fulfillment success rate, thời gian hiển thị mã P95, SMS/email delivery rate, lỗi thanh toán, lỗi cấp mã và lỗi gửi thông báo.
+
+## 6. Yêu cầu đặt event tracking
+
+Tích chọn yêu cầu tương ứng; nội dung chi tiết cần final cùng thiết kế CX, mapping GA/Adjust và báo cáo nội bộ trước go-live.
+
+| Hệ thống tracking | Áp dụng | Nội dung yêu cầu |
+|---|---|---|
+| EVT | Chưa xác định | Nếu Viettel Money yêu cầu ghi nhận trên EVT, PO/CX/Analytics cần bổ sung mapping event chính thức trước go-live. |
+| Adjust | Có | Ghi nhận nguồn truy cập/campaign và các bước funnel phù hợp cho traffic app/webview/quảng cáo nếu nền tảng Adjust được dùng cho chiến dịch. |
+| GA | Có | Ghi nhận funnel website gồm vào trang, chọn nhà mạng/mệnh giá, thay đổi số lượng, nhập thông tin nhận mã, xác nhận, bắt đầu thanh toán, thanh toán thành công, cấp mã thành công, thất bại/timeout. |
+| Không đặt event tracking | Không | Không phù hợp vì MVP cần đo visit-to-purchase CR, checkout completion rate, fulfillment success rate và rớt đơn theo từng bước. |
+
+Nguyên tắc tracking bắt buộc:
+
+- Không gửi mã thẻ/seri, số điện thoại/email dạng thô hoặc dữ liệu nhạy cảm chưa được phê duyệt vào GA, Adjust, EVT hoặc công cụ analytics.
+- Event phải có khả năng đối chiếu với báo cáo giao dịch ở mức tổng hợp; nếu cần join dữ liệu, chỉ dùng định danh giao dịch/ẩn danh theo chuẩn nội bộ.
+- Mapping event cần thống nhất tên event, tham số, trigger, điều kiện bắn, nền tảng nhận và tiêu chí nghiệm thu trước go-live.
