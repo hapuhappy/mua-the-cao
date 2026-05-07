@@ -1,0 +1,25 @@
+.DS_Store
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated build output
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+
+# Logs and local caches
+*.log
+.cache/
+.turbo/
+
+# Local tool/editor state
+.vscode/
+.idea/
+
+# Local BMAD user overrides
+_bmad/**/*.user.toml

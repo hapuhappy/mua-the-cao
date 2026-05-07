@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX Design Directions - Mua thẻ cào</title>
+  <style>
+    :root {
+      --brand: #e60012;
+      --brand-dark: #b9000e;
+      --ink: #171717;
+      --muted: #666;
+      --line: #e8e8e8;
+      --bg: #f6f7f9;
+      --card: #fff;
+      --success: #14853d;
+      --warning: #b66a00;
+      --error: #c62828;
+      --discount: #fff3f4;
+      --radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid var(--line); padding: 16px 20px; }
+    h1 { margin: 0 0 4px; font-size: 22px; }
+    header p { margin: 0; color: var(--muted); font-size: 14px; }
+    main { padding: 20px; display: grid; gap: 20px; }
+    .direction { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .direction-title { padding: 16px 18px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .direction-title h2 { margin: 0; font-size: 18px; }
+    .tag { background: var(--discount); color: var(--brand-dark); padding: 5px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+    .mock { display: grid; grid-template-columns: minmax(280px, 390px) 1fr; gap: 18px; padding: 18px; }
+    .phone { background: #fff; border: 1px solid #ddd; border-radius: 24px; padding: 14px; box-shadow: 0 14px 40px rgba(0,0,0,.08); max-width: 390px; }
+    .screen { min-height: 640px; background: #fbfbfb; border-radius: 18px; overflow: hidden; border: 1px solid #eee; display: flex; flex-direction: column; }
+    .topbar { padding: 14px 16px; background: #fff; border-bottom: 1px solid var(--line); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+    .content { padding: 16px; display: grid; gap: 14px; }
+    .hero { background: linear-gradient(135deg, #fff, #fff4f5); border: 1px solid #ffd7db; border-radius: var(--radius); padding: 14px; }
+    .hero h3 { margin: 0 0 6px; font-size: 19px; }
+    .hero p, .notes p { margin: 0; color: var(--muted); line-height: 1.45; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .tile, .summary, .field, .receipt-card { border: 1px solid var(--line); background: #fff; border-radius: var(--radius); padding: 12px; }
+    .tile.selected { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(230,0,18,.08); }
+    .tile b { display: block; margin-bottom: 4px; }
+    .tile span, .field span { color: var(--muted); font-size: 13px; }
+    .summary { display: grid; gap: 8px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+    .row strong { color: var(--brand); font-size: 17px; }
+    .field label { display: block; font-weight: 700; margin-bottom: 8px; }
+    .input { border: 1px solid var(--line); border-radius: 8px; padding: 11px; color: var(--muted); background: #fafafa; }
+    .cta { margin-top: auto; padding: 14px 16px; border-top: 1px solid var(--line); background: rgba(255,255,255,.96); }
+    button { width: 100%; border: 0; background: var(--brand); color: #fff; border-radius: 8px; padding: 13px 16px; font-weight: 700; font-size: 15px; }
+    .receipt-card { display: grid; gap: 8px; }
+    .code { font-family: "Courier New", monospace; background: #f4f4f4; border-radius: 6px; padding: 10px; font-size: 17px; letter-spacing: 1px; }
+    .copy { color: var(--brand); font-weight: 700; font-size: 13px; }
+    .state { color: var(--success); font-weight: 700; }
+    .pending { color: var(--warning); font-weight: 700; }
+    .notes { padding: 4px 0; }
+    .notes h3 { margin: 0 0 8px; font-size: 16px; }
+    .notes ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.55; }
+    .compact .content { gap: 10px; }
+    .compact .hero { padding: 12px; }
+    .receipt-first .hero { background: #effaf3; border-color: #bde5ca; }
+    .receipt-first .code { background: #fff; border: 1px dashed #bbb; }
+    .trust .hero { background: #fff; border-color: var(--line); }
+    .trust .topbar { background: var(--brand); color: #fff; }
+    .multi .grid { grid-template-columns: 1fr; }
+    .seo .hero { background: #fff; border-color: var(--line); }
+    .seo .content:after { content: "Câu hỏi thường gặp · Nhà mạng hỗ trợ · Chính sách nhận mã"; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; font-size: 13px; }
+    .webview .screen { min-height: 560px; }
+    @media (max-width: 860px) {
+      .mock { grid-template-columns: 1fr; }
+      main { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UX Design Directions - Mua thẻ cào</h1>
+    <p>So sánh 6 hướng thiết kế mobile-first cho viettelmoney.vn. Các mockup là định hướng cấu trúc, không phải visual final.</p>
+  </header>
+  <main>
+    <section class="direction compact">
+      <div class="direction-title"><h2>1. Fast Purchase First</h2><span class="tag">Mua nhanh</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Viettel Money <span>Hỗ trợ</span></div>
+          <div class="content">
+            <div class="hero"><h3>Mua thẻ cào có chiết khấu</h3><p>Chọn thẻ, thanh toán, nhận mã ngay. Không cần đăng nhập.</p></div>
+            <div class="grid"><div class="tile selected"><b>Viettel</b><span>Đang ưu đãi</span></div><div class="tile"><b>VinaPhone</b><span>Có sẵn</span></div></div>
+            <div class="grid"><div class="tile selected"><b>100.000đ</b><span>Trả 98.000đ</span></div><div class="tile"><b>50.000đ</b><span>Trả 49.000đ</span></div></div>
+            <div class="field"><label>Số lượng</label><div class="input">- 1 +</div></div>
+            <div class="field"><label>Số điện thoại nhận SMS</label><div class="input">Nhập số điện thoại</div></div>
+            <div class="summary"><div class="row"><span>Tạm tính</span><b>100.000đ</b></div><div class="row"><span>Chiết khấu</span><b>-2.000đ</b></div><div class="row"><span>Tổng thanh toán</span><strong>98.000đ</strong></div></div>
+          </div><div class="cta"><button>Tiếp tục</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp traffic ads/webview cần chuyển đổi nhanh.</li><li>Purchase module nằm ngay first viewport.</li><li>Rủi ro: cần thêm trust signal đủ rõ để guest user yên tâm.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="direction trust">
+      <div class="direction-title"><h2>2. Trust-Led Transaction</h2><span class="tag">Tin cậy trước</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Viettel Money <span>Chính thống</span></div>
+          <div class="content">
+            <div class="hero"><h3>Mua thẻ cào trên Viettel Money</h3><p>Mã hiển thị sau thanh toán, gửi SMS và có mã giao dịch để hỗ trợ.</p></div>
+            <div class="summary"><div class="row"><span>Nhận mã</span><b>Màn hình + SMS</b></div><div class="row"><span>Hỗ trợ</span><b>Theo mã giao dịch</b></div><div class="row"><span>Thanh toán</span><b>CTT Viettel Money</b></div></div>
+            <div class="grid"><div class="tile selected"><b>Viettel</b><span>Logo + tên</span></div><div class="tile"><b>MobiFone</b><span>Có sẵn</span></div></div>
+            <div class="tile selected"><b>100.000đ</b><span>Chiết khấu 2% · Thanh toán 98.000đ</span></div>
+            <div class="field"><label>Số điện thoại nhận mã</label><div class="input">Bắt buộc để nhận lại mã</div></div>
+          </div><div class="cta"><button>Thanh toán 98.000đ</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp SEO/khách mới cần kiểm chứng độ tin cậy.</li><li>Làm rõ kênh nhận mã và hỗ trợ trước thanh toán.</li><li>Rủi ro: dài hơn hướng mua nhanh.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="direction multi">
+      <div class="direction-title"><h2>3. Multi-Card Cart</h2><span class="tag">Mua nhiều thẻ</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Mua nhiều thẻ <span>3 mã</span></div>
+          <div class="content">
+            <div class="hero"><h3>Đơn thẻ cào</h3><p>Kiểm tra số lượng và tổng tiền trước khi thanh toán.</p></div>
+            <div class="receipt-card"><b>Viettel · 100.000đ</b><div class="row"><span>Số lượng</span><b>- 2 +</b></div><div class="row"><span>Thành tiền</span><b>196.000đ</b></div></div>
+            <div class="receipt-card"><b>Viettel · 50.000đ</b><div class="row"><span>Số lượng</span><b>- 1 +</b></div><div class="row"><span>Thành tiền</span><b>49.000đ</b></div></div>
+            <div class="summary"><div class="row"><span>Tổng mệnh giá</span><b>250.000đ</b></div><div class="row"><span>Tổng tiết kiệm</span><b>-5.000đ</b></div><div class="row"><span>Thanh toán</span><strong>245.000đ</strong></div></div>
+            <div class="field"><label>Email nhận danh sách mã</label><div class="input">Tùy chọn nhưng khuyến nghị khi mua nhiều</div></div>
+          </div><div class="cta"><button>Xác nhận đơn 3 thẻ</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp điểm khác biệt mua nhiều thẻ một lần.</li><li>Giảm nhầm số lượng/mệnh giá trên mobile.</li><li>Rủi ro: hơi nặng nếu chỉ mua 1 thẻ, cần adaptive layout.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="direction receipt-first">
+      <div class="direction-title"><h2>4. Fulfillment Receipt</h2><span class="tag">Nhận mã rõ nhất</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Giao dịch thành công <span class="state">Đã cấp mã</span></div>
+          <div class="content">
+            <div class="hero"><h3>Bạn đã nhận 2 mã thẻ</h3><p>Mã đã hiển thị bên dưới và gửi SMS đến 098****123.</p></div>
+            <div class="receipt-card"><b>1/2 · Viettel 100.000đ</b><span>Serial: 12345678901</span><div class="code">8392 1029 3345</div><span class="copy">Copy mã</span></div>
+            <div class="receipt-card"><b>2/2 · Viettel 100.000đ</b><span>Serial: 12345678902</span><div class="code">1182 7721 0901</div><span class="copy">Copy mã</span></div>
+            <div class="summary"><div class="row"><span>Mã giao dịch</span><b>VTM24050601</b></div><div class="row"><span>SMS</span><b class="state">Đã gửi</b></div><div class="row"><span>Email</span><b>Không nhập</b></div></div>
+          </div><div class="cta"><button>Copy tất cả mã</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp success screen, nơi nhận hàng thật.</li><li>Ưu tiên mã thẻ, serial, trạng thái gửi SMS/email.</li><li>Rủi ro: cần policy che/hiện mã nếu bảo mật yêu cầu.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="direction webview">
+      <div class="direction-title"><h2>5. Webview Safe</h2><span class="tag">Ads/chat webview</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Đang xử lý giao dịch <span class="pending">Pending</span></div>
+          <div class="content">
+            <div class="hero"><h3>Thanh toán đang được xác nhận</h3><p>Không thanh toán lại ngay. Chúng tôi đang kiểm tra trạng thái giao dịch.</p></div>
+            <div class="summary"><div class="row"><span>Mã giao dịch</span><b>VTM24050602</b></div><div class="row"><span>Số điện thoại</span><b>098****123</b></div><div class="row"><span>Trạng thái</span><b class="pending">Đang xử lý</b></div></div>
+            <div class="field"><label>Nếu webview bị đóng</label><div class="input">Dùng mã giao dịch hoặc SMS để liên hệ hỗ trợ</div></div>
+            <div class="field"><label>Không mở được thanh toán?</label><div class="input">Mở trong trình duyệt ngoài nếu cần</div></div>
+          </div><div class="cta"><button>Kiểm tra lại trạng thái</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp xử lý payment return, pending, timeout.</li><li>Giảm panic và tránh thanh toán lại.</li><li>Rủi ro: cần đồng bộ trạng thái backend/payment rõ.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="direction seo">
+      <div class="direction-title"><h2>6. SEO + Purchase Hybrid</h2><span class="tag">SEO không cản mua</span></div>
+      <div class="mock">
+        <div class="phone"><div class="screen">
+          <div class="topbar">Mua thẻ cào online <span>Viettel Money</span></div>
+          <div class="content">
+            <div class="hero"><h3>Mua thẻ cào online, nhận mã ngay</h3><p>Hỗ trợ nhiều nhà mạng, có chiết khấu, thanh toán an toàn.</p></div>
+            <div class="grid"><div class="tile selected"><b>Viettel</b><span>Ưu đãi 2%</span></div><div class="tile"><b>VinaPhone</b><span>Có sẵn</span></div></div>
+            <div class="tile selected"><b>50.000đ</b><span>Thanh toán 49.000đ</span></div>
+            <div class="summary"><div class="row"><span>Nhận mã</span><b>Màn hình + SMS</b></div><div class="row"><span>Hỗ trợ</span><b>Có mã giao dịch</b></div></div>
+          </div><div class="cta"><button>Mua thẻ ngay</button></div>
+        </div></div>
+        <div class="notes"><h3>Khi dùng</h3><ul><li>Phù hợp traffic tìm kiếm cần thông tin trước khi mua.</li><li>Giữ module mua ở trên, SEO/FAQ ở dưới.</li><li>Rủi ro: nội dung SEO không được làm trang nặng.</li></ul></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
